@@ -1,0 +1,33 @@
+data:
+  n_employees: 10000
+  seed: 42
+  output_path: data/hr_data.csv
+
+departments: [Engineering, Sales, Marketing, HR, Finance, Operations, Product, Legal]
+levels: [Junior, Mid, Senior, Lead, Manager, Director, VP]
+genders: [Male, Female, Non-binary]
+tenure_bands: ["0-1", "1-3", "3-5", "5-10", "10+"]
+
+feature_engineering:
+  recent_rating: true
+  rating_trend: true
+  avg_rating: true
+  promotion_gap_threshold: 24
+  manager_change_threshold: 2
+  risk_score_weights:
+    promotion_gap: 0.25
+    manager_change: 0.15
+    salary_below_avg: 0.15
+    satisfaction_below_avg: 0.15
+    low_rating: 0.15
+    declining_trend: 0.10
+    rating_volatility: 0.05
+
+model:
+  test_size: 0.2
+  cv_folds: 5
+  random_state: 42
+
+output:
+  output_dir: outputs
+  save_csv: true
